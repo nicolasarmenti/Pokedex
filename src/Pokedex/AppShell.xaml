@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:Pokedex"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
+	<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
