@@ -1,6 +1,117 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Pokedex.View.MainPage">
+			 xmlns:model="clr-namespace:Pokedex.Model"
+			 xmlns:viewmodel="clr-namespace:Pokedex.ViewModel"
+			 x:DataType="viewmodel:MainPageViewModel"
+             x:Class="Pokedex.View.MainPage"
+			 BackgroundColor="{StaticResource Background}"
+			 >
+
+	<Grid ColumnDefinitions="*,Auto"
+		  ColumnSpacing="5"
+		  RowDefinitions="Auto, *"
+		  RowSpacing="0"
+		  BackgroundColor="{StaticResource Primary}"
+		  Padding="4"
+		  >
+
+		<VerticalStackLayout BackgroundColor="{StaticResource Primary}"
+							 Padding="12, 12, 12, 24">
+			<HorizontalStackLayout>
+				<Image Source="pokeball_white.svg"
+					   WidthRequest="24"
+					   HeightRequest="24"
+					   Aspect="AspectFill"
+					   VerticalOptions="Center"
+					   Margin="0,0,4,0"
+					   />
+
+				<Label Text="Pokédex"
+					   Style="{StaticResource Headline}"
+					   TextColor="White"
+					   HeightRequest="32"
+					   VerticalOptions="Center"
+					   />
+			</HorizontalStackLayout>
+		</VerticalStackLayout>
+
+		<Frame Grid.Row="1"
+			   CornerRadius="8"
+			   BackgroundColor="{StaticResource White}"
+			   Margin="0"
+			   Padding="12, 24, 12, 0">
+			<CollectionView BackgroundColor="Transparent"
+							ItemsSource="{Binding pokemonList}"
+							Margin="0">
+				<CollectionView.ItemsLayout>
+					<GridItemsLayout Orientation="Vertical"
+									 HorizontalItemSpacing="0"
+									 VerticalItemSpacing="5"
+									 Span="3" />
+				</CollectionView.ItemsLayout>
+				<CollectionView.ItemTemplate>
+					<DataTemplate x:DataType="model:Pokemon">
+						<Border WidthRequest="104"
+								HeightRequest="108"
+								Stroke="Black"
+								StrokeThickness="1"
+								StrokeShape="RoundRectangle 8">
+							<Border.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainPageViewModel}}, Path=GoToDetailsCommand}"
+												CommandParameter="{Binding .}"/>
+							</Border.GestureRecognizers>
+							<Grid RowDefinitions="*, 44"
+								  ColumnDefinitions="*"
+								  Padding="0">
+								<VerticalStackLayout Grid.Row="0"
+													 Grid.RowSpan="2"
+													 Padding="0">
+									<Label Text="{Binding LongId, StringFormat='#{0}'}"
+										   Style="{StaticResource Caption}" 
+										   TextColor="{StaticResource Medium}"
+										   HorizontalTextAlignment="End"
+										   VerticalTextAlignment="Start"
+										   WidthRequest="104"
+										   HeightRequest="16"
+										   Padding="8,4,8,0"
+										   />
+									<Image WidthRequest="72"
+										   HeightRequest="72"
+										   Aspect="AspectFill"
+										   HorizontalOptions="Center"
+										   VerticalOptions="Center"
+										   Source="{Binding sprites.other.officialartwork.front_default}"
+										   />	
+									<Label Text="{Binding FullName}"
+										   Style="{StaticResource Body3}"
+										   TextColor="{StaticResource Dark}"
+										   HorizontalTextAlignment="Center"
+										   Margin="8, 0"
+										   WidthRequest="104"
+										   HeightRequest="16"
+										   />
+								</VerticalStackLayout>
+								<Frame Grid.Row="1"
+									   ZIndex="-1"
+									   BackgroundColor="{StaticResource Background}"
+									   CornerRadius="7"
+									   Margin="1"
+									   Padding="0"
+									   />
+							</Grid>
+						</Border>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</Frame>
+		
+		<ActivityIndicator IsVisible="{Binding IsBusy}"
+						IsRunning="{Binding IsBusy}"
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="CenterAndExpand"
+						Grid.RowSpan="3"
+						Grid.ColumnSpan="2" />
+	</Grid>
 
 </ContentPage>

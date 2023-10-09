@@ -7,49 +7,61 @@
 	<Style x:Key="Headline" TargetType="Label">
 		<Setter Property="FontFamily" Value="PoppinsBold"/>
 		<Setter Property="FontSize" Value="24"/>
-		<Setter Property="LineHeight" Value="32"/>
+		<Setter Property="LineHeight" Value="1.33"/>
 	</Style>
 
 	<Style x:Key="Subtitle1" TargetType="Label">
 		<Setter Property="FontFamily" Value="PoppinsBold"/>
 		<Setter Property="FontSize" Value="14"/>
-		<Setter Property="LineHeight" Value="16"/>
+		<Setter Property="LineHeight" Value="1.14"/>
 	</Style>
 
 	<Style x:Key="Subtitle2" TargetType="Label">
 		<Setter Property="FontFamily" Value="PoppinsBold"/>
 		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="LineHeight" Value="16"/>
+		<Setter Property="LineHeight" Value="1.33"/>
 	</Style>
 
 	<Style x:Key="Subtitle3" TargetType="Label">
 		<Setter Property="FontFamily" Value="PoppinsBold"/>
 		<Setter Property="FontSize" Value="10"/>
-		<Setter Property="LineHeight" Value="16"/>
+		<Setter Property="LineHeight" Value="1.6"/>
 	</Style>
 
 	<Style x:Key="Body1" TargetType="Label">
 		<Setter Property="FontFamily" Value="PoppinsRegular"/>
 		<Setter Property="FontSize" Value="14"/>
-		<Setter Property="LineHeight" Value="16"/>
+		<Setter Property="LineHeight" Value="1.14"/>
 	</Style>
 
 	<Style x:Key="Body2" TargetType="Label">
 		<Setter Property="FontFamily" Value="PoppinsRegular"/>
 		<Setter Property="FontSize" Value="12"/>
-		<Setter Property="LineHeight" Value="16"/>
+		<Setter Property="LineHeight" Value="1.33"/>
 	</Style>
 
 	<Style x:Key="Body3" TargetType="Label">
 		<Setter Property="FontFamily" Value="PoppinsRegular"/>
 		<Setter Property="FontSize" Value="10"/>
-		<Setter Property="LineHeight" Value="16"/>
+		<Setter Property="LineHeight" Value="1.6"/>
 	</Style>
 
 	<Style x:Key="Caption" TargetType="Label">
 		<Setter Property="FontFamily" Value="PoppinsRegular"/>
 		<Setter Property="FontSize" Value="8"/>
-		<Setter Property="LineHeight" Value="12"/>
+		<Setter Property="LineHeight" Value="1.5"/>
+	</Style>
+
+	<Style x:Key="Stat" TargetType="Label" BasedOn="{StaticResource Subtitle3}">
+		<Setter Property="WidthRequest" Value="27"/>
+		<Setter Property="HorizontalTextAlignment" Value="End"/>
+		<Setter Property="TextColor" Value="{StaticResource Wireframe}"/>
+	</Style>
+
+	<Style x:Key="StatValue" TargetType="Label" BasedOn="{StaticResource Body3}">
+		<Setter Property="WidthRequest" Value="19"/>
+		<Setter Property="HorizontalTextAlignment" Value="End"/>
+		<Setter Property="TextColor" Value="{StaticResource Dark}"/>
 	</Style>
 
 </ResourceDictionary>

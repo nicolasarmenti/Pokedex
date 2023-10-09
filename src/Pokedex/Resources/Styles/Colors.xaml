@@ -5,12 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <Color x:Key="Primary">#DC0A2D</Color>
+	<Color x:Key="Secondary">#28AAFD</Color>
 
 	<Color x:Key="Dark">#212121</Color>
 	<Color x:Key="Medium">#666666</Color>
 	<Color x:Key="Light">#E0E0E0</Color>
 	<Color x:Key="Background">#EFEFEF</Color>
 	<Color x:Key="White">#FFFFFF</Color>
+	<Color x:Key="Wireframe">#B8B8B8</Color>
 
 	<Color x:Key="TypeBug">#A7B723</Color>
 	<Color x:Key="TypeDark">#75574C</Color>

@@ -1,4 +1,8 @@
-﻿namespace Pokedex;
+﻿using Pokedex.View;
+using Pokedex.Services;
+using Pokedex.ViewModel;
+
+namespace Pokedex;
 
 public static class MauiProgram {
 	public static MauiApp CreateMauiApp() {
@@ -16,6 +20,16 @@ public static class MauiProgram {
 				fonts.AddFont("Poppins-SemiBold.ttf", "PoppinsSemiBold");
 				fonts.AddFont("Poppins-Thin.ttf", "PoppinsThin");
 			});
+
+		builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+
+		builder.Services.AddSingleton<PokeAPIService>();
+
+		builder.Services.AddSingleton<MainPageViewModel>();
+		builder.Services.AddTransient<DetailsViewModel>();
+
+		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddTransient<DetailsPage>();
 
 		return builder.Build();
 	}

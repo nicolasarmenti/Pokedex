@@ -51,14 +51,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Model\" />
+	  <None Remove="Resources\Images\arrow_back.png" />
+	  <None Remove="Resources\Images\pokeball_white.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Folder Include="Resources\Raw\" />
-	  <Folder Include="ViewModel\" />
 	  <Folder Include="Services\" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="..\.editorconfig" Link=".editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\DetailsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
